@@ -314,23 +314,28 @@ class Customer{
 int  main()
 {
 	cout<<"Welcome to Video Library Services!"<<endl;
-	cout<<"Please select your role"<<endl;
-	cout<<"1. Administrator."<<endl<<"2. Vendor."<<endl<<"3. Customer."<<endl;
-	int role;
-	cin>>role;
-	//Identifying the user role;
-	switch(role){
-		case 1 	: 	Admin a;
-		            a.AuthenticateAdmin(); //creating objects for respective class roles and performing authentication
-					break;
-		case 2 	: 	Vendor v;
-		            v.AuthenticateVendor();
-					break;
-		case 3 	: 	Customer c;
-		            c.AuthenticateCustomer();
-					break;
-	    default :	cout<<"Invalid Role . Please try again!"<<endl; //Handling invalid roles;
-					
+	bool isexit=false;
+	while(true&&!isexit){
+		cout<<"Please select your role"<<endl;
+		cout<<"1. Administrator."<<endl<<"2. Vendor."<<endl<<"3. Customer."<<endl<<"4. Exit"<<endl;
+		int role;
+		cin>>role;
+		//Identifying the user role;
+		switch(role){
+			case 1 	: 	Admin a;
+			            a.AuthenticateAdmin(); //creating objects for respective class roles and performing authentication
+						break;
+			case 2 	: 	Vendor v;
+			            v.AuthenticateVendor();
+						break;
+			case 3 	: 	Customer c;
+			            c.AuthenticateCustomer();
+						break;
+			case 4  :   isexit=true;
+				    break; 
+		    default :	cout<<"Invalid Role . Please try again!"<<endl; //Handling invalid roles;
+						
+		}
 	}
 	
 }
